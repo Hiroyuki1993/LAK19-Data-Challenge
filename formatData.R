@@ -1,7 +1,10 @@
 library(tidyverse)
 library(ggmcmc)
 
-events = read_csv("./data/KyoU/Course_509a6f75849b_EventStream.csv")
+events.KyoU1 = read_csv("./data/KyoU/Course_509a6f75849b_EventStream.csv")
+events.KU1 = read_csv("./data/KU/Course_24a65f29b6_EventStream.csv")
+events.KU1 %>% bind_rows(events.KyoU1)
+
 scores = read_csv("./data/KyoU/Course_509a6f75849b_QuizScore.csv")
 
 scores %>% ggplot(aes(score)) + geom_histogram()
