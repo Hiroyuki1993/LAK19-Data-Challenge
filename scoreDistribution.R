@@ -22,3 +22,5 @@ scores = scores.AU1 %>%
             scores.KU9, scores.KU10, scores.KyoU1, scores.KyoU2)
 
 scores %>% ggplot(aes(score)) + geom_histogram() + facet_wrap(~dataset, ncol = 5)
+
+scores = scores %>% mutate(univ = substr(dataset, 1, 2))
